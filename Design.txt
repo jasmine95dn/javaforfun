@@ -1,0 +1,17 @@
+Es gibt ingesamt 5 definierten Klassen:
+1. Corpus: Diese Klasse sammelt alle angegebenen Dokumenten bzw. Suchanfragen (falls es neue Wörter gibt, die noch nicht von den Dokumenten in Korpus eingetragen sind.). Außer getter-Methode, die die Liste von Dokumenten in Korpus zurückgeben, gibt es noch 4 Methoden:
+	*  getVocabulary(): gibt die Liste der Vokabular im Korpus zurück
+	*  countDocumentsWithToken(): gibt eine Mappe von jedem Token in Vokabular mit den Anzahl der Dokumenten, in den dies gefunden wird, zurück.
+	*  countTokensinCorpus(): gibt eine Mappe von jedem Token in Vokabular mit seinen Frequenz in den ganzen Korpus zurück.
+	*  getCountDocuments(): gibt die Anzahl der Dokumenten, die in Korpus eingetragen sind, zurück.
+
+2. Document: Diese Klasse repräsentiert einen Dokument. Sie liest eine Textdatei ein und speichert dann eine Liste von Tokens in dieser Datei. Außerdem hat jedes Document-Object ein Variable 'filename', welches als Titel erkannt ist. Außer getter-Methode für die 2 Variablen, gibt es noch 1 Methode:
+	*  statische removeStopwords() nimmt ein Document-Objekt als Argument: löscht alle Stoppwörter in diesem Dokument. Stopwörter sind von der Datei "stopwords.txt" genommen.
+
+3. TermFrequencyVector: Diese Klasse repräsentiert ein Dokument als ein Term-Frequenz-Vektor. Der Konstruktor nimmt ein Document-Objekt und Corpus-Objekt als Argumenten, und speichert in ihrem lokalen Variable 'map' eine Mappe von allen Tokens mit ihren Frequenzen im Dokument. getter-Methode gibt diese Mappe zurück.
+
+4. TfIdfVector: Diese Klasse repräsentiert ein Dokument als ein TF-IDF-Vektor. Der Konstruktor nimmt ein Document-Objekt und ein Corpus-Objekt als Argumenten, und speichert in ihrem lokalen Variable 'map' eine Mappe von allen Tokens mit ihren berechneten TF-IDF-Werten. Außer getter-Methode gibt es noch 2 Methoden:
+    *  norm(): berechnet die Euklidischen Norm dieses Vektors.
+    *  cosineSim() nimmt ein anderes TfIdfVector-Objekt als Argument: berechnet die Cosinus-Ähnlichkeitsmaße dieses Vektor mit einem anderen Vektor.
+
+5. SearchEngine: Diese Klasse ist eine Klasse zum Testen die definierten Klassen. Außer main-Methode, die den Test ausführt, gibt es noch eine Funktion searchfile(), die ein Corpus-Objekt und ein Document-Objekt (aber als eine Anfrage, nicht ein Dokument im Korpus) als Argumenten nehmen. Es wird die Cosinus-Ähnlichkeitsmaße zwischen jedem Dokument im Korpus und der gegebenen Anfrage berechnet, um das ähnlichste Dokument zur Anfrage zu finden.
